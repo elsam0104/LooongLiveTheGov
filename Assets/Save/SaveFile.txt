@@ -1,12 +1,14 @@
 ﻿{
-    "UserName": "LLL",
-    "Meters": 1299,
+    "UserName": "김마고",
+    "Meters": 4757,
+    "CUprice": 100,
+    "QTprice": 100,
     "shipList": [
         {
             "shipNumber": 0,
             "shipName": "익숙한 새총",
-            "amount": 13,
-            "price": 75,
+            "amount": 14,
+            "price": 86,
             "mPs": 1
         },
         {
@@ -26,8 +28,8 @@
         {
             "shipNumber": 3,
             "shipName": "농구선수",
-            "amount": 0,
-            "price": 3509,
+            "amount": 1,
+            "price": 4035,
             "mPs": 58
         },
         {

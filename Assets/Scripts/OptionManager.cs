@@ -19,8 +19,10 @@ public class OptionManager : MonoBehaviour
     private Text inputText = null;
 
     private User user = null;
+    private SoundManager soundManager = null;
     private void Start()
     {
+        soundManager = FindObjectOfType<SoundManager>();
         SetValues(user);
     }
     private void SetValues(User user)
@@ -30,10 +32,12 @@ public class OptionManager : MonoBehaviour
     }
     public void SetUserName()
     {
+        soundManager.startSfx();
         nameChangeButtonText.text = user.UserName;
     }
     public void GoOptionSet()
     {
+        soundManager.startSfx();
         Time.timeScale = 0;
         optionSet.SetActive(true);
         nameInputSet.SetActive(false);
@@ -42,29 +46,34 @@ public class OptionManager : MonoBehaviour
     }
     public void OnClickReturnToGame()
     {
+        soundManager.startSfx();
         Time.timeScale = 1;
         optionSet.SetActive(false);
     }
     public void OnClickExitButton()
     {
+        soundManager.startSfx();
         recommandSet.SetActive(true);
     }
     public void OnClickChangeName()
     {
+        soundManager.startSfx();
         nameInputSet.SetActive(true);
     }
     public void OnClickIndex()
-    {
+    {   soundManager.startSfx();
         indexSet.SetActive(true);
     }
     public void OnClickReallyQuit()
     {
+        soundManager.startSfx();
         Time.timeScale = 1;
         Application.Quit();
     }
 
     public void OnAcceptChangeName()
     {
+        soundManager.startSfx();
         GameManager.Instance.CurrentUser.UserName = inputText.text;
         GameManager.Instance.SaveToJson();
         SetUserName();

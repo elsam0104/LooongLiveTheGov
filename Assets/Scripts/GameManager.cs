@@ -6,6 +6,23 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     [SerializeField]
+    private string[] unitArr;
+    public string[] ShowUnit
+    {
+        get
+        {
+            return unitArr;
+        }
+    }
+    private int unitOrder = 1;
+    public int ShowUnitOrder
+    {
+        get
+        {
+            return unitOrder;
+        }
+    }
+    [SerializeField]
     private User user = null;
 
     public User CurrentUser
@@ -58,7 +75,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Awake()
     {
-        
+        LengthUnitText(CurrentUser.Meters);
         SAVE_PATH = Application.dataPath + "/Save";
         if (!Directory.Exists(SAVE_PATH))
         {
@@ -72,6 +89,28 @@ public class GameManager : MonoSingleton<GameManager>
         InvokeRepeating("EarnMetersPerSec", 0f, 1f);
     }
 
+    public string LengthUnitText(long meters)
+    {
+        string currentUnit = null;
+        int order = 0;
+        int i = 0;
+        currentUnit = unitArr[order];
+        for (i = 3; meters / Mathf.Pow(10,i) < 0; i+=3)
+        {
+            currentUnit = unitArr[order];
+            order++;
+        }
+        if(order == 0)
+        {
+            unitOrder = 1;
+        }
+        else
+        {
+            unitOrder = order;
+        }
+        Debug.Log(currentUnit);
+        return currentUnit;
+    }
     private void EarnMetersPerSec()
     {
         foreach(Ship ship in user.shipList)

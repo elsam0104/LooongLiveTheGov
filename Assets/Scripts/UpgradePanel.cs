@@ -18,7 +18,12 @@ public class UpgradePanel : MonoBehaviour
     [SerializeField]
     private Sprite[] shipSprite = null;
 
-    private Ship ship = null;
+    private Ship ship = null; 
+    private SoundManager soundManager = null;
+    private void Start()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
     public void SetValues(Ship ship)
     {
         this.ship = ship;
@@ -34,6 +39,7 @@ public class UpgradePanel : MonoBehaviour
 
     public void OnClickPurchase()
     {
+        soundManager.startSfx();
         if (GameManager.Instance.CurrentUser.Meters < ship.price)
         {
             return;
