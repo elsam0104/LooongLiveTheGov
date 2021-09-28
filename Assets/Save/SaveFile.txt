@@ -1,0 +1,105 @@
+﻿{
+    "UserName": "LLL",
+    "Meters": 1299,
+    "shipList": [
+        {
+            "shipNumber": 0,
+            "shipName": "익숙한 새총",
+            "amount": 13,
+            "price": 75,
+            "mPs": 1
+        },
+        {
+            "shipNumber": 1,
+            "shipName": "사람-총",
+            "amount": 3,
+            "price": 165,
+            "mPs": 4
+        },
+        {
+            "shipNumber": 2,
+            "shipName": "수력로켓",
+            "amount": 0,
+            "price": 633,
+            "mPs": 14
+        },
+        {
+            "shipNumber": 3,
+            "shipName": "농구선수",
+            "amount": 0,
+            "price": 3509,
+            "mPs": 58
+        },
+        {
+            "shipNumber": 4,
+            "shipName": "유명한 폭탄",
+            "amount": 0,
+            "price": 19327,
+            "mPs": 258
+        },
+        {
+            "shipNumber": 5,
+            "shipName": "로케트",
+            "amount": 0,
+            "price": 106326,
+            "mPs": 1181
+        },
+        {
+            "shipNumber": 6,
+            "shipName": "로켓",
+            "amount": 0,
+            "price": 584821,
+            "mPs": 5570
+        },
+        {
+            "shipNumber": 7,
+            "shipName": "핵폭탄",
+            "amount": 0,
+            "price": 3216543,
+            "mPs": 26805
+        },
+        {
+            "shipNumber": 8,
+            "shipName": "탄도 미사일",
+            "amount": 0,
+            "price": 17691014,
+            "mPs": 131045
+        },
+        {
+            "shipNumber": 9,
+            "shipName": "수소폭탄",
+            "amount": 0,
+            "price": 97399605,
+            "mPs": 648671
+        },
+        {
+            "shipNumber": 10,
+            "shipName": "초강력 수류탄",
+            "amount": 0,
+            "price": 535153355,
+            "mPs": 3243354
+        },
+        {
+            "shipNumber": 11,
+            "shipName": "초강력 함대",
+            "amount": 0,
+            "price": 2943343480,
+            "mPs": 16351908
+        },
+        {
+            "shipNumber": 12,
+            "shipName": "축지법",
+            "amount": 0,
+            "price": 16188389168,
+            "mPs": 83017380
+        },
+        {
+            "shipNumber": 13,
+            "shipName": "로켓-보그",
+            "amount": 0,
+            "price": 89036140452,
+            "mPs": 423981621
+        }
+    ],
+    "indexList": []
+}

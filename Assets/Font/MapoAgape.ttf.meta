@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 01164eca72a2dbc4d91bf336053e42e2
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - MapoAgape
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: dcd8b1571a1638843abb8f5a90c564ac, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
