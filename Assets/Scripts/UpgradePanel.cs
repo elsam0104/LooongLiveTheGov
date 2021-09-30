@@ -39,13 +39,15 @@ public class UpgradePanel : MonoBehaviour
 
     public void OnClickPurchase()
     {
-        soundManager.startSfx();
+        
         if (GameManager.Instance.CurrentUser.Meters < ship.price)
         {
+            soundManager.startDisallowance();
             return;
         }
         else
         {
+            soundManager.startSfx();
             GameManager.Instance.CurrentUser.Meters -= ship.price;
             ship.amount++;
             ship.price = (long)(ship.price * 1.15f);

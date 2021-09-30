@@ -69,14 +69,28 @@ public class GameManager : MonoSingleton<GameManager>
     private Transform poolManager;
     public Transform Pool { get { return poolManager; } }
 
+
  
     private string SAVE_PATH = "";
     private string SAVE_FILENAME = "/SaveFile.txt";
-
+    public Vector2 maxPosition { get; private set; }
+    public Vector2 minPosition { get; private set; }
+    [SerializeField]
+    private GameObject astronautGameObject = null;
+    private Astronaut astronaut;
+    [SerializeField]
+    private GameObject astronautPosition = null;
+    public GameObject showAstronautPosition
+    {
+        get
+        {
+            return astronautPosition;
+        }
+    }
     private void Awake()
     {
         LengthUnitText(CurrentUser.Meters);
-        SAVE_PATH = Application.dataPath + "/Save";
+        SAVE_PATH = Application.persistentDataPath + "/Save";
         if (!Directory.Exists(SAVE_PATH))
         {
             Directory.CreateDirectory(SAVE_PATH);
@@ -84,7 +98,11 @@ public class GameManager : MonoSingleton<GameManager>
     }
     private void Start()
     {
+        maxPosition = new Vector3(9f, 3.2f,-1f);
+        minPosition = new Vector3(-9f, -3.2f);
+        astronaut = FindObjectOfType<Astronaut>();
         LoadFromJson();
+        //StartCoroutine(ShowAstronaut());
         InvokeRepeating("SaveToJson", 1f, 60f);
         InvokeRepeating("EarnMetersPerSec", 0f, 1f);
     }
@@ -108,8 +126,31 @@ public class GameManager : MonoSingleton<GameManager>
         {
             unitOrder = order;
         }
-        Debug.Log(currentUnit);
+        //Debug.Log(currentUnit);
         return currentUnit;
+    }
+
+    private IEnumerator ShowAstronaut()
+    {
+        float randomDelay = 0f;
+
+        while (true)
+        {
+            randomDelay = Random.Range(3f, 5f);
+            yield return new WaitForSeconds(30f);
+
+            Astronaut newAstronaut = null;
+            if (astronaut.showPool.childCount > 0) 
+            {
+                newAstronaut = astronaut.showPool.GetChild(0).GetComponent<Astronaut>(); 
+            }
+            else
+            {
+                newAstronaut = Instantiate(astronautGameObject,  astronautPosition.transform.parent).GetComponent<Astronaut>();
+            }
+            Debug.Log("spawned");
+            yield return new WaitForSeconds(randomDelay);
+        }
     }
     private void EarnMetersPerSec()
     {
@@ -126,6 +167,7 @@ public class GameManager : MonoSingleton<GameManager>
             string json = File.ReadAllText(SAVE_PATH + SAVE_FILENAME);
             user = JsonUtility.FromJson<User>(json);
             Debug.Log("[로드 항목]\n" + json);
+            Debug.Log("로드 경로\n" + SAVE_PATH + SAVE_FILENAME);
         }
     }
     public void SaveToJson()
@@ -133,9 +175,11 @@ public class GameManager : MonoSingleton<GameManager>
         string json = JsonUtility.ToJson(user, true);
         File.WriteAllText(SAVE_PATH + SAVE_FILENAME, json, System.Text.Encoding.UTF8);
         Debug.Log("[세이브 항목]\n" + json);
+        Debug.Log("세이브 경로\n" + SAVE_PATH + SAVE_FILENAME);
     }
     private void OnApplicationQuit()
     {
         SaveToJson();
     }
+
 }

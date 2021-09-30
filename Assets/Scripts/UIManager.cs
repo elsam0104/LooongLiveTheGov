@@ -6,17 +6,6 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
-    private long clickPerMeters = 1;
-    public long showClickPerMeters
-    {
-        get
-        {
-            return clickPerMeters;
-        }
-    }
-    private int QTupgradeNumber = 1;
-    private int CUupgradeNumber = 1;
-    [SerializeField]
     private Text metersText = null;
     [SerializeField]
     private EarnText earnTextTemplate = null;
@@ -30,7 +19,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Button QTbutton = null;
     [SerializeField]
-    private Image QTbuttonGameSR = null;
+    private Image QTbuttonGameImage = null;
+    [SerializeField]
+    private GameObject QTshadow = null;
     [SerializeField]
     private Text CUpriceText = null;
     [SerializeField]
@@ -45,7 +36,9 @@ public class UIManager : MonoBehaviour
         soundManager = FindObjectOfType < SoundManager >();
         UpdateEnergyPanel();
         CreatePanel();
-        CreateIndex();
+        //CreateIndex();
+        UpdateOtherUpgradePanel();
+
     }
     private void CreatePanel()
     {
@@ -76,27 +69,33 @@ public class UIManager : MonoBehaviour
             indexPannelList.Add(newIndexComponent);
         }
     }
+
     public void ClickUpgrade()
     {
-        soundManager.startSfx();
+        
         if(GameManager.Instance.CurrentUser.Meters < GameManager.Instance.CurrentUser.CUprice)
         {
+            soundManager.startDisallowance();
             return;
         }
+        soundManager.startSfx();
         GameManager.Instance.CurrentUser.Meters -= GameManager.Instance.CurrentUser.CUprice;
-        clickPerMeters += (long)Mathf.Pow(10, CUupgradeNumber);
-        CUupgradeNumber++;
+        GameManager.Instance.CurrentUser.clickPerMeters += (long)Mathf.Pow(10, GameManager.Instance.CurrentUser.CUupgradeNumber);
+        GameManager.Instance.CurrentUser.CUupgradeNumber++;
+        GameManager.Instance.CurrentUser.CUprice = (long)Mathf.Pow(GameManager.Instance.CurrentUser.CUprice, 2);
         UpdateOtherUpgradePanel();
     }
     public void QuickTimeUpgrade()
     {
-        soundManager.startSfx();
+        
         if (GameManager.Instance.CurrentUser.Meters < GameManager.Instance.CurrentUser.QTprice)
         {
+            soundManager.startDisallowance();
             return;
         }
+        soundManager.startSfx();
         GameManager.Instance.CurrentUser.Meters -= GameManager.Instance.CurrentUser.QTprice;
-        float coolTime= 1;
+        float coolTime = 1;
         
         while(coolTime > 100)
         {
@@ -106,15 +105,19 @@ public class UIManager : MonoBehaviour
             UpdateOtherUpgradePanel();
         }
         Time.timeScale = 1f;
+        GameManager.Instance.CurrentUser.QTprice++;
+        GameManager.Instance.CurrentUser.QTprice = (long)Mathf.Pow(GameManager.Instance.CurrentUser.QTprice, 2);
+        UpdateOtherUpgradePanel();
+        QTshadow.SetActive(true);
         //spriteRenderer.material.SetColor("_Color", new Color(0.8f, 0.8f, 0.8f, 1f));
-        QTbuttonGameSR.material.SetColor("_Color", new Color(0.5f, 0.5f, 0.5f, 1));
+        //QTbuttonGameImage.color = Color.gray;
         QTbutton.interactable = true;
     }
     public void OnClickShip()
     {
         soundManager.startSfx();
         Debug.Log("클릭");
-        GameManager.Instance.CurrentUser.Meters += clickPerMeters;
+        GameManager.Instance.CurrentUser.Meters += GameManager.Instance.CurrentUser.clickPerMeters;
         ShipAnimator.Play("spaceShip");
         EarnText newText = null;
         if (GameManager.Instance.Pool.childCount > 0)  //풀메니저에 들어있는 차일드(에너지 텍스트)가 없으면 만들고 있으면 거기서 가져온다.
@@ -131,10 +134,13 @@ public class UIManager : MonoBehaviour
     }
     public void UpdateOtherUpgradePanel()
     {
+        GameManager.Instance.LengthUnitText(GameManager.Instance.CurrentUser.CUprice);
+
         CUpriceText.text = string.Format("{0} ", GameManager.Instance.CurrentUser.CUprice / GameManager.Instance.ShowUnitOrder) + (string)GameManager.Instance.LengthUnitText(GameManager.Instance.CurrentUser.CUprice);
+        GameManager.Instance.LengthUnitText(GameManager.Instance.CurrentUser.QTprice);
         QTpriceText.text = string.Format("{0} ", GameManager.Instance.CurrentUser.QTprice / GameManager.Instance.ShowUnitOrder) + (string)GameManager.Instance.LengthUnitText(GameManager.Instance.CurrentUser.QTprice);
-        CUbuttonText.text = string.Format("{0}기 채용",1);
-        QTbuttonText.text = string.Format("{0}화 시청",1);
+        CUbuttonText.text = string.Format("{0}기 채용", GameManager.Instance.CurrentUser.CUupgradeNumber);
+        QTbuttonText.text = string.Format("{0}화 시청", GameManager.Instance.CurrentUser.QTupgradeNumber);
     }
     public void UpdateEnergyPanel()
     {

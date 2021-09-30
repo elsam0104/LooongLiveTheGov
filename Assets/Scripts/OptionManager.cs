@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class OptionManager : MonoBehaviour
 {
     [SerializeField]
@@ -17,6 +16,9 @@ public class OptionManager : MonoBehaviour
     private Text nameChangeButtonText = null;
     [SerializeField]
     private Text inputText = null;
+    [SerializeField]
+    private GameObject infoSet = null;
+    
 
     private User user = null;
     private SoundManager soundManager = null;
@@ -32,7 +34,6 @@ public class OptionManager : MonoBehaviour
     }
     public void SetUserName()
     {
-        soundManager.startSfx();
         nameChangeButtonText.text = user.UserName;
     }
     public void GoOptionSet()
@@ -79,4 +80,16 @@ public class OptionManager : MonoBehaviour
         SetUserName();
         GoOptionSet();
     }
+
+    public void ClickInfoButton()
+    {
+        soundManager.startSfx();
+        infoSet.SetActive(true);
+    }
+    public void ClickExitInfoSet()
+    {
+        soundManager.startSfx();
+        infoSet.SetActive(false);
+    }
+
 }

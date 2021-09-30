@@ -47,6 +47,36 @@ TextureImporter:
   - first:
       213: 3351663347658812849
     second: ShipSprites_14
+  - first:
+      213: -810911839773011704
+    second: ShipSprites_15
+  - first:
+      213: -5749458808659785271
+    second: ShipSprites_16
+  - first:
+      213: -738887523171726537
+    second: ShipSprites_17
+  - first:
+      213: 2305989129655826364
+    second: ShipSprites_18
+  - first:
+      213: 923995312764276802
+    second: ShipSprites_19
+  - first:
+      213: 3218093503594201182
+    second: ShipSprites_20
+  - first:
+      213: 6599298092279800020
+    second: ShipSprites_21
+  - first:
+      213: -2662976030199794612
+    second: ShipSprites_22
+  - first:
+      213: 4254109567660688910
+    second: ShipSprites_23
+  - first:
+      213: 2967964903505438117
+    second: ShipSprites_24
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -88,7 +118,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -176,9 +206,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 39
-        width: 10
-        height: 15
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,10 +226,10 @@ TextureImporter:
       name: ShipSprites_1
       rect:
         serializedVersion: 2
-        x: 22
-        y: 39
-        width: 8
-        height: 15
+        x: 16
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,10 +247,10 @@ TextureImporter:
       name: ShipSprites_2
       rect:
         serializedVersion: 2
-        x: 40
-        y: 37
-        width: 8
-        height: 17
+        x: 32
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,9 +268,9 @@ TextureImporter:
       name: ShipSprites_3
       rect:
         serializedVersion: 2
-        x: 47
-        y: 5
-        width: 19
+        x: 20
+        y: 0
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -259,10 +289,10 @@ TextureImporter:
       name: ShipSprites_4
       rect:
         serializedVersion: 2
-        x: 74
-        y: 38
-        width: 11
-        height: 14
+        x: 64
+        y: 2
+        width: 32
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,9 +310,9 @@ TextureImporter:
       name: ShipSprites_5
       rect:
         serializedVersion: 2
-        x: 90
-        y: 38
-        width: 5
+        x: 0
+        y: 48
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -301,10 +331,10 @@ TextureImporter:
       name: ShipSprites_6
       rect:
         serializedVersion: 2
-        x: 1
-        y: 26
-        width: 11
-        height: 11
+        x: 16
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,10 +352,10 @@ TextureImporter:
       name: ShipSprites_7
       rect:
         serializedVersion: 2
-        x: 16
-        y: 25
-        width: 14
-        height: 13
+        x: 32
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -343,9 +373,9 @@ TextureImporter:
       name: ShipSprites_8
       rect:
         serializedVersion: 2
-        x: 32
-        y: 21
-        width: 14
+        x: 48
+        y: 48
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -364,10 +394,10 @@ TextureImporter:
       name: ShipSprites_9
       rect:
         serializedVersion: 2
-        x: 67
-        y: 0
-        width: 32
-        height: 36
+        x: 64
+        y: 47.6
+        width: 16
+        height: 16.4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -385,10 +415,10 @@ TextureImporter:
       name: ShipSprites_10
       rect:
         serializedVersion: 2
-        x: 10
-        y: 39
-        width: 12
-        height: 15
+        x: 80
+        y: 47.6
+        width: 16
+        height: 16.4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -406,10 +436,10 @@ TextureImporter:
       name: ShipSprites_11
       rect:
         serializedVersion: 2
-        x: 30
-        y: 39
-        width: 8
-        height: 15
+        x: 0
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -427,10 +457,10 @@ TextureImporter:
       name: ShipSprites_12
       rect:
         serializedVersion: 2
-        x: 60
-        y: 37
-        width: 11
-        height: 17
+        x: 16
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -448,10 +478,10 @@ TextureImporter:
       name: ShipSprites_13
       rect:
         serializedVersion: 2
-        x: 48
-        y: 37
-        width: 11
-        height: 17
+        x: 32
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -469,12 +499,12 @@ TextureImporter:
       name: ShipSprites_14
       rect:
         serializedVersion: 2
-        x: 2
-        y: 4
-        width: 12
+        x: 48
+        y: 32
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -482,6 +512,48 @@ TextureImporter:
       bones: []
       spriteID: 1bd66eb8e00838e20800000000000000
       internalID: 3351663347658812849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShipSprites_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 801db266aff0fb4f0800000000000000
+      internalID: -810911839773011704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShipSprites_16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 0
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c9c71beca1d530b0800000000000000
+      internalID: -5749458808659785271
       vertices: []
       indices: 
       edges: []

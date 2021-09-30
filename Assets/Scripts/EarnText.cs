@@ -8,7 +8,7 @@ public class EarnText : MonoBehaviour
     public void Show(Vector2 mousePosition)
     {
         energyText = GetComponent<Text>();
-        energyText.text = string.Format("+ {0}", GameManager.Instance.UI.showClickPerMeters);
+        energyText.text = string.Format("+ {0}", GameManager.Instance.CurrentUser.clickPerMeters);
 
         energyText.gameObject.SetActive(true);
         energyText.transform.SetParent(GameManager.Instance.showCanvas.transform);
