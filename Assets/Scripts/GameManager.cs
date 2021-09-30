@@ -133,21 +133,31 @@ public class GameManager : MonoSingleton<GameManager>
     private IEnumerator ShowAstronaut()
     {
         float randomDelay = 0f;
+        yield return new WaitForSeconds(0f);
 
         while (true)
         {
             randomDelay = Random.Range(3f, 5f);
-            yield return new WaitForSeconds(30f);
+            
 
             Astronaut newAstronaut = null;
-            if (astronaut.showPool.childCount > 0) 
+            if (Pool.childCount > 0) 
             {
-                newAstronaut = astronaut.showPool.GetChild(0).GetComponent<Astronaut>(); 
+                newAstronaut = Pool.GetChild(0).GetComponent<Astronaut>(); 
             }
             else
             {
-                newAstronaut = Instantiate(astronautGameObject,  astronautPosition.transform.parent).GetComponent<Astronaut>();
+                newAstronaut = Instantiate(astronautGameObject,  canvas.transform).GetComponent<Astronaut>();
             }
+            //if (GameManager.Instance.Pool.childCount > 0)  //풀메니저에 들어있는 차일드(에너지 텍스트)가 없으면 만들고 있으면 거기서 가져온다.
+            //{
+            //    newText = GameManager.Instance.Pool.GetChild(0).GetComponent<EarnText>(); // .은 ~의 띄어쓰기는 다른거 .이 많으면 복잡해짐, 최적화에도 별로
+
+            //}
+            //else
+            //{
+            //    newText = Instantiate(earnTextTemplate, GameManager.Instance.showCanvas.transform).GetComponent<EarnText>();
+            //}
             Debug.Log("spawned");
             yield return new WaitForSeconds(randomDelay);
         }
