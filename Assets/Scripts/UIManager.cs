@@ -105,8 +105,8 @@ public class UIManager : MonoBehaviour
             UpdateOtherUpgradePanel();
         }
         Time.timeScale = 1f;
-        GameManager.Instance.CurrentUser.QTprice++;
-        GameManager.Instance.CurrentUser.QTprice = (long)Mathf.Pow(GameManager.Instance.CurrentUser.QTprice, 2);
+        GameManager.Instance.CurrentUser.QTupgradeNumber++;
+        GameManager.Instance.CurrentUser.QTprice = (long)Mathf.Pow(GameManager.Instance.CurrentUser.QTprice, 1.5f);
         UpdateOtherUpgradePanel();
         QTshadow.SetActive(true);
         //spriteRenderer.material.SetColor("_Color", new Color(0.8f, 0.8f, 0.8f, 1f));
